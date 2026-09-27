@@ -1,0 +1,16 @@
+date,description,category,amount,paid_by,split_between
+2025-06-01,Flight tickets to Goa,Travel,12000.00,Amit,Amit|Neha|Rahul
+2025-06-01,Hotel check-in advance,Stay,9000.00,Neha,Amit|Neha|Rahul
+2025-06-02,Breakfast at cafe,Food,750.00,Rahul,Amit|Neha|Rahul
+2025-06-02,Scuba diving activity,Activities,4500.00,Amit,Amit|Neha|Rahul
+2025-06-02,Taxi to beach,Travel,600.00,Neha,Amit|Neha|Rahul
+2025-06-03,Lunch at shack,Food,1200.00,Rahul,Amit|Neha|Rahul
+2025-06-03,Souvenir shopping,Shopping,2100.00,Amit,Amit|Neha
+2025-06-03,Snorkelling trip,Activities,3600.00,Neha,Neha|Rahul
+2025-06-04,Dinner at restaurant,Food,1800.00,Rahul,Amit|Neha|Rahul
+2025-06-04,Bus tickets back,Travel,900.00,Amit,Amit|Neha|Rahul
+2025-06-05,Grocery supplies,Food,540.00,Neha,Amit|Neha|Rahul
+2025-06-06,Electricity bill share,Utilities,1350.00,Rahul,Amit|Neha|Rahul
+2025-06-07,Museum entry tickets,Activities,600.00,Amit,Amit|Neha|Rahul
+2025-06-08,Medicines and toiletries,Shopping,480.00,Neha,Amit|Neha|Rahul
+2025-06-09,Miscellaneous expenses,Other,960.00,Rahul,Amit|Neha|Rahul
