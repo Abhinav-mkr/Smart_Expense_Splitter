@@ -10,28 +10,7 @@ All application logic and internal tests live in **`app.py`**. Expenses are stor
 
 The Dashboard is the first screen you see when the app loads. It shows five KPI cards at the top, followed by two charts side by side, and a full-width bar chart below.
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│  Sidebar                  │  📊 Dashboard                           │
-│  💰 Smart Expense Splitter│                                         │
-│  Track group expenses,    │  Total      Trans-  Avg       Top       Top   │
-│  split bills equally,     │  Expenses   actions Expense   Category  Spender│
-│  and settle up fast.      │  ₹40,380   15       ₹2,692   Travel    Amit  │
-│                           │                                         │
-│  👥 Participants          │  ┌─────────────────┐ ┌───────────────┐ │
-│  • Amit                   │  │ Spending by      │ │ Daily Spending│ │
-│  • Neha                   │  │ Category (Pie)   │ │ Trend (Bar)   │ │
-│  • Rahul                  │  │                  │ │               │ │
-│                           │  │  Travel  33.4%   │ │  Jun 1: ₹21k  │ │
-│  Data stored in           │  │  Stay    22.3%   │ │  Jun 2: ₹6k   │ │
-│  expenses.csv             │  │  Activities 21.5%│ │  Jun 3: ₹7k   │ │
-│  Total rows: 15           │  │  Food    10.6%   │ │  ...          │ │
-│                           │  └─────────────────┘ └───────────────┘ │
-│                           │                                         │
-│                           │  Amount Paid by Each Person (Bar)       │
-│                           │  Amit ₹20,100 | Neha ₹14,220 | Rahul ₹6,060 │
-└─────────────────────────────────────────────────────────────────────┘
-```
+![Smart Expense Splitter dashboard showing the actual application UI with expense totals, participants, category distribution, and daily spending trends](assets/dashboard-output.png)
 
 **What the dashboard shows with the sample dataset:**
 
