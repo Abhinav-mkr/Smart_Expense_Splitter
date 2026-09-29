@@ -4,6 +4,96 @@ A Python and Streamlit application for recording shared expenses, splitting bill
 
 All application logic and internal tests live in **`app.py`**. Expenses are stored in a local CSV file, with interactive charts built using Plotly.
 
+## Application UI
+
+### Dashboard tab
+
+The Dashboard is the first screen you see when the app loads. It shows five KPI cards at the top, followed by two charts side by side, and a full-width bar chart below.
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  Sidebar                  │  📊 Dashboard                           │
+│  💰 Smart Expense Splitter│                                         │
+│  Track group expenses,    │  Total      Trans-  Avg       Top       Top   │
+│  split bills equally,     │  Expenses   actions Expense   Category  Spender│
+│  and settle up fast.      │  ₹40,380   15       ₹2,692   Travel    Amit  │
+│                           │                                         │
+│  👥 Participants          │  ┌─────────────────┐ ┌───────────────┐ │
+│  • Amit                   │  │ Spending by      │ │ Daily Spending│ │
+│  • Neha                   │  │ Category (Pie)   │ │ Trend (Bar)   │ │
+│  • Rahul                  │  │                  │ │               │ │
+│                           │  │  Travel  33.4%   │ │  Jun 1: ₹21k  │ │
+│  Data stored in           │  │  Stay    22.3%   │ │  Jun 2: ₹6k   │ │
+│  expenses.csv             │  │  Activities 21.5%│ │  Jun 3: ₹7k   │ │
+│  Total rows: 15           │  │  Food    10.6%   │ │  ...          │ │
+│                           │  └─────────────────┘ └───────────────┘ │
+│                           │                                         │
+│                           │  Amount Paid by Each Person (Bar)       │
+│                           │  Amit ₹20,100 | Neha ₹14,220 | Rahul ₹6,060 │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+**What the dashboard shows with the sample dataset:**
+
+| KPI | Value |
+| --- | --- |
+| Total Expenses | ₹40,380.00 |
+| Transactions | 15 |
+| Avg Expense | ₹2,692.00 |
+| Top Category | Travel |
+| Top Spender | Amit |
+
+- **Spending by Category** — donut pie chart with percentage labels for all 7 categories
+- **Daily Spending Trend** — bar chart showing spending per day from Jun 1–9, 2025
+- **Amount Paid by Each Person** — horizontal bar chart comparing Amit, Neha, and Rahul
+- **Insights** — 3 auto-generated plain-English lines summarising the data (highest category, biggest payer, average expense)
+
+---
+
+### Add Expense tab
+
+A form with 6 fields. All fields are validated before saving.
+
+| Field | Type | Example |
+| --- | --- | --- |
+| Date | Date picker | 2025-06-10 |
+| Description | Text input | Lunch at cafe |
+| Category | Dropdown | Food |
+| Amount (₹) | Number input (min 0.01) | 750.00 |
+| Paid By | Dropdown (from participants) | Amit |
+| Split Between | Multi-select | Amit, Neha, Rahul |
+
+Clicking **Save Expense** appends the row to `expenses.csv` and refreshes the dashboard immediately. Empty descriptions, zero/negative amounts, and no participants selected are each blocked with an error message.
+
+---
+
+### Balances & Splits tab
+
+Shows a colour-coded table of each person's financial position.
+
+| Person | Total Paid | Total Share | Net Balance |
+| --- | ---: | ---: | ---: |
+| Amit | ₹20,100.00 | ₹12,610.00 | **+₹7,490.00** 🟢 |
+| Neha | ₹14,220.00 | ₹14,410.00 | **−₹190.00** 🔴 |
+| Rahul | ₹6,060.00 | ₹13,360.00 | **−₹7,300.00** 🔴 |
+
+Green = should receive money. Red = owes money. The full expense list is shown below the balance table.
+
+---
+
+### Settlements tab
+
+Shows the minimum transactions needed to clear all debts:
+
+```
+💸 Rahul pays Amit  →  ₹7,300.00
+💸 Neha  pays Amit  →  ₹190.00
+```
+
+A verification check confirms that applying these payments brings every balance to zero.
+
+---
+
 ## Features
 
 | Area | What it provides |
